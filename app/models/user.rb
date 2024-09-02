@@ -4,6 +4,7 @@ class User < ApplicationRecord
   devise :database_authenticatable, :registerable,
          :recoverable, :rememberable, :trackable, :validatable,
          :confirmable, :omniauthable
+
   include DeviseTokenAuth::Concerns::User
 
   belongs_to :superior, class_name: 'User', optional: true
