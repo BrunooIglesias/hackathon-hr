@@ -1,5 +1,5 @@
 class SessionsController < DeviseTokenAuth::SessionsController
-  skip_before_action :verify_authenticity_token # TODO: check this line
+  skip_before_action :verify_authenticity_token
 
   protected
 

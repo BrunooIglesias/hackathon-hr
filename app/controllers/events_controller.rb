@@ -1,4 +1,5 @@
 class EventsController < ApplicationController
+   # before_action :authenticate_user! # todo: fix this bug
   # TODO
   protect_from_forgery except: :create
 
@@ -6,7 +7,9 @@ class EventsController < ApplicationController
 
   def index
     @events = Event.all
+    render json: @events
   end
+
 
   def show
   end

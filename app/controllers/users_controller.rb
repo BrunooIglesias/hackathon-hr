@@ -13,10 +13,6 @@ class UsersController < ApplicationController
     authorize @user
   end
 
-  def edit
-    authorize @user
-  end
-
   def create
     @user = User.create(user_params)
     authorize @user

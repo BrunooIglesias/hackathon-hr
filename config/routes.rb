@@ -5,14 +5,14 @@ Rails.application.routes.draw do
 
   resources :users
   resources :clients
+  resources :time_off_requests
+  resources :suggestions, only: [:create]
+  resources :events
 
   if Rails.env.development?
     mount GraphiQL::Rails::Engine, at: "/graphiql", graphql_path: "/graphql"
   end
   post "/graphql", to: "graphql#execute"
-
-  resources :suggestions, only: [:create]
-  resources :events
 
   # Define your application routes per the DSL in https://guides.rubyonrails.org/routing.html
 
