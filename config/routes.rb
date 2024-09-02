@@ -11,8 +11,8 @@ Rails.application.routes.draw do
   end
   post "/graphql", to: "graphql#execute"
 
-  devise_for :users, skip: [:registrations]
   resources :suggestions, only: [:create]
+  resources :events
 
   # Define your application routes per the DSL in https://guides.rubyonrails.org/routing.html
 
