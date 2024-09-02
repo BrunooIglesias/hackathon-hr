@@ -68,7 +68,13 @@ group :test do
   gem "selenium-webdriver"
 end
 
-gem "devise", "~> 4.9"
+gem "devise"
+gem 'devise_token_auth'
+gem "omniauth"
+
 gem "graphiql-rails", group: :development
 
 gem 'pundit'
+gem 'rack-cors'
+gem "bcrypt", "3.1.20"
+gem 'rolify'

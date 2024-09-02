@@ -1,23 +1,19 @@
 Rails.application.routes.draw do
-  get 'clients/index'
-  get 'clients/show'
-  get 'clients/edit'
-  get 'clients/create'
-  get 'clients/update'
-  get 'clients/destroy'
-  get 'users/index'
-  get 'users/show'
-  get 'users/new'
-  get 'users/edit'
-  get 'users/create'
-  get 'users/update'
-  get 'users/destroy'
+  mount_devise_token_auth_for 'User', at: 'auth', controllers: {
+    sessions: 'sessions'
+  }
+
+  resources :users
+  resources :clients
+
   if Rails.env.development?
     mount GraphiQL::Rails::Engine, at: "/graphiql", graphql_path: "/graphql"
   end
   post "/graphql", to: "graphql#execute"
+
   devise_for :users, skip: [:registrations]
   resources :suggestions, only: [:create]
+
   # Define your application routes per the DSL in https://guides.rubyonrails.org/routing.html
 
   # Reveal health status on /up that returns 200 if the app boots with no exceptions, otherwise 500.
