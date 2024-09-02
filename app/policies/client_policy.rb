@@ -1,10 +1,10 @@
-class UserPolicy < ApplicationPolicy
+class ClientPolicy < ApplicationPolicy
   class Scope < Scope
     def resolve
       if user.admin? || user.manager?
         scope.all
       else
-        scope.where(id: user.id)
+        scope.none
       end
     end
   end
@@ -14,7 +14,7 @@ class UserPolicy < ApplicationPolicy
   end
 
   def show?
-    user.admin? || user.manager? || record.id == user.id
+    user.admin? || user.manager?
   end
 
   def create?
@@ -22,7 +22,7 @@ class UserPolicy < ApplicationPolicy
   end
 
   def update?
-    user.admin? || record.id == user.id
+    user.admin?
   end
 
   def destroy?
