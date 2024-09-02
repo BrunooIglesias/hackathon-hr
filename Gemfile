@@ -72,3 +72,4 @@ gem "devise", "~> 4.9"
 gem "graphiql-rails", group: :development
 
 gem 'pundit'
+gem 'rack-cors'
