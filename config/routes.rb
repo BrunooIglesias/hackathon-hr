@@ -1,4 +1,11 @@
 Rails.application.routes.draw do
+  get 'users/index'
+  get 'users/show'
+  get 'users/new'
+  get 'users/edit'
+  get 'users/create'
+  get 'users/update'
+  get 'users/destroy'
   if Rails.env.development?
     mount GraphiQL::Rails::Engine, at: "/graphiql", graphql_path: "/graphql"
   end
