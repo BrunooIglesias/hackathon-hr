@@ -10,7 +10,7 @@ class User < ApplicationRecord
   validates :name, :surname, :email, :role, :birth_date, presence: true
   validates :email, uniqueness: true
 
-  enum role: {manager: "manager", admin: "admin", reader: "reader"}
+  enum role: {manager: "manager", admin: "admin", reader: "reader", candidate: "candidate"}
 
   def age
     return unless birth_date

@@ -1,0 +1,13 @@
+# Read about fixtures at https://api.rubyonrails.org/classes/ActiveRecord/FixtureSet.html
+
+one:
+  client: one
+  status: 1
+  date_paid: 2024-09-02
+  amount: 9.99
+
+two:
+  client: two
+  status: 1
+  date_paid: 2024-09-02
+  amount: 9.99
