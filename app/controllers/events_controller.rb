@@ -11,40 +11,38 @@ class EventsController < ApplicationController
   end
 
 
-  def show
+   def show
+     render json: @event
+   end
+
+   def edit
   end
 
-  def new
-    @event = Event.new
-  end
+   def create
+     @event = Event.new(event_params)
 
-  def edit
-  end
+     if @event.save
+       render json: @event
+     else
+       render json: @event.errors, status: :unprocessable_entity
+     end
+   end
 
-  def create
-    @event = Event.new(event_params)
 
-    if @event.save
-      redirect_to @event, notice: 'Event was successfully created.'
-    else
-      render :new
-    end
-  end
-
-  def update
+   def update
     if @event.update(event_params)
-      redirect_to @event, notice: 'Event was successfully updated.'
+      render json: @event
     else
       render :edit
     end
   end
 
-  def destroy
-    @event.destroy
-    redirect_to events_url, notice: 'Event was successfully destroyed.'
-  end
+   def destroy
+     @event.destroy
+     head :no_content
+   end
 
-  private
+   private
 
   def set_event
     @event = Event.find(params[:id])
